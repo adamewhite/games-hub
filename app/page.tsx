@@ -1,9 +1,6 @@
-import Link from "next/link";
-
 /**
- * Games in the hub. Entries with an `href` under this domain are served as
- * microfrontends (add them to microfrontends.json); `external: true` entries
- * still live on their own domains until they join the group.
+ * A launcher, nothing more: every game lives on its own domain and this page
+ * links out. Add a row here when a new game ships.
  */
 const GAMES: {
   name: string;
@@ -11,28 +8,43 @@ const GAMES: {
   href: string;
   color: string;
   fg?: string;
-  external?: boolean;
 }[] = [
   {
     name: "Atlasso",
     tagline: "Balance the world on a scale",
-    href: "/atlasso",
+    href: "https://atlasso.vercel.app",
     color: "#f9c74f",
     fg: "#1a1a1a",
   },
   {
-    name: "VWLDRP",
-    tagline: "Every vowel has dropped",
+    name: "VWL DRP",
+    tagline: "A daily word game",
     href: "https://vwldrp.com",
     color: "#277da1",
-    external: true,
+  },
+  {
+    name: "Oroboro",
+    tagline: "A game of circular logic",
+    href: "https://www.playoroboro.com",
+    color: "#43aa8b",
   },
   {
     name: "Heatspell",
-    tagline: "Spelling under pressure",
+    tagline: "A daily spelling game",
     href: "https://playheatspell.com",
     color: "#f94144",
-    external: true,
+  },
+  {
+    name: "Lacuno",
+    tagline: "Fill the gaps in the phrase",
+    href: "https://lacuno.vercel.app",
+    color: "#577590",
+  },
+  {
+    name: "Zumma",
+    tagline: "Spend your numbers, land on the goal",
+    href: "https://zumma.vercel.app",
+    color: "#f3722c",
   },
 ];
 
@@ -73,8 +85,8 @@ export default function Home() {
           width: "min(420px, 90vw)",
         }}
       >
-        {GAMES.map((game) => {
-          const inner = (
+        {GAMES.map((game) => (
+          <a key={game.name} href={game.href} style={{ textDecoration: "none" }}>
             <span
               style={{
                 display: "block",
@@ -100,17 +112,8 @@ export default function Home() {
                 {game.tagline}
               </span>
             </span>
-          );
-          return game.external ? (
-            <a key={game.name} href={game.href} style={{ textDecoration: "none" }}>
-              {inner}
-            </a>
-          ) : (
-            <Link key={game.name} href={game.href} style={{ textDecoration: "none" }}>
-              {inner}
-            </Link>
-          );
-        })}
+          </a>
+        ))}
       </main>
     </div>
   );

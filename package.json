@@ -5,11 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "proxy": "microfrontends proxy microfrontends.json --local-apps games-hub"
+    "start": "next start"
   },
   "dependencies": {
-    "@vercel/microfrontends": "latest",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
