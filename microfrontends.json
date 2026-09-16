@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/microfrontends.json",
+  "applications": {
+    "games-hub": {
+      "development": {
+        "fallback": "games-hub.vercel.app"
+      }
+    },
+    "atlasso": {
+      "routing": [{ "paths": ["/atlasso/:path*"] }],
+      "development": {
+        "fallback": "atlasso.vercel.app"
+      }
+    }
+  }
+}

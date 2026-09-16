@@ -1,0 +1,22 @@
+{
+  "name": "games-hub",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "proxy": "microfrontends proxy microfrontends.json --local-apps games-hub"
+  },
+  "dependencies": {
+    "@vercel/microfrontends": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "typescript": "^5"
+  }
+}
